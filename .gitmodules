@@ -1,0 +1,9 @@
+[submodule "hal_hydrabox"]
+	path = hal_hydrabox
+	url = https://github.com/panpawelchmiel/hal_hydrabox.git
+[submodule "hal_agribot_control"]
+	path = hal_agribot_control
+	url = https://github.com/panpawelchmiel/hal_agribot_control.git
+[submodule "hal_inclinometer"]
+	path = hal_inclinometer
+	url = https://github.com/panpawelchmiel/hal_inclinometer.git
