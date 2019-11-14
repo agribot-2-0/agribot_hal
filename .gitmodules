@@ -7,3 +7,6 @@
 [submodule "hal_inclinometer"]
 	path = hal_inclinometer
 	url = https://github.com/panpawelchmiel/hal_inclinometer.git
+[submodule "hal_bringup"]
+	path = hal_bringup
+	url = https://github.com/panpawelchmiel/hal_bringup.git
