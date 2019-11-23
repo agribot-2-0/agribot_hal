@@ -10,3 +10,6 @@
 [submodule "hal_bringup"]
 	path = hal_bringup
 	url = https://github.com/panpawelchmiel/hal_bringup.git
+[submodule "hal_manual_control"]
+	path = hal_manual_control
+	url = https://github.com/panpawelchmiel/hal_manual_control.git
