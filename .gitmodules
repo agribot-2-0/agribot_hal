@@ -13,3 +13,6 @@
 [submodule "hal_manual_control"]
 	path = hal_manual_control
 	url = https://github.com/panpawelchmiel/hal_manual_control.git
+[submodule "hal_mobile_app"]
+	path = hal_mobile_app
+	url = https://github.com/panpawelchmiel/hal_mobile_app.git
