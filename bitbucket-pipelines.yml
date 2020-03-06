@@ -7,6 +7,7 @@ pipelines:
          services:
            - docker
          script:
+           - ls
            - ./pull_submodules.sh
            - apk add --update bash coreutils tar
            - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci .industrial_ci -b master
