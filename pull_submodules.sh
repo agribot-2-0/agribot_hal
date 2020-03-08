@@ -4,7 +4,7 @@ git submodule update --init --recursive
 
 for D in */ ;
 do
-    echo Entering "$D"
+    echo "Entering" "$D"
     cd "$D"
     git checkout master
     git remote update origin --prune
