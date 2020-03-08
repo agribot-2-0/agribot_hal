@@ -1,4 +1,5 @@
-image: atlassian/default-image:2
+image: docker:git
+
 pipelines:
   default:
      - step:
@@ -6,9 +7,8 @@ pipelines:
          services:
            - docker
          script:
-           - ls
-           - ./pull_submodules.sh
            - apk add --update bash coreutils tar
+           - ./pull_submodules.sh
            - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci .industrial_ci -b master
            - git clone https://github.com/panpawelchmiel/agribot_msgs.git
            - git clone https://github.com/panpawelchmiel/agribot_common.git
