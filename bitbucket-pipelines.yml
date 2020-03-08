@@ -1,5 +1,4 @@
-image: docker:git
-
+image: atlassian/default-image:2
 pipelines:
   default:
      - step:
