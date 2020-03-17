@@ -16,3 +16,6 @@
 [submodule "hal_mobile_app"]
 	path = hal_mobile_app
 	url = https://github.com/panpawelchmiel/hal_mobile_app.git
+[submodule "hal_iocard"]
+	path = hal_iocard
+	url = https://github.com/panpawelchmiel/hal_iocard.git
