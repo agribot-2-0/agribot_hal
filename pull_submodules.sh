@@ -2,8 +2,25 @@
 
 status=""
 verbose="false"
-init_repositories="true"
+init_repositories="false"
 problem_detected="false"
+
+function spearate_branches () {
+    str="$1 "
+    bran=""
+    while IFS=' ' read -ra ADDR; do
+        for i in "${ADDR[@]}"; do
+            if [ $i == "master" ]
+            then
+                echo "master"
+                return
+            fi
+            bran="$i"
+        done
+    done <<< "$str"
+    echo "$bran"
+    return
+}
 
 function check_for_errors () {
     if [[ $1 == *"stash"* ]]
@@ -13,10 +30,17 @@ function check_for_errors () {
         echo -e "$1\e[0m"
         return
     fi
-    if [[ $1 == *"fatal:"* ]] || [[ $1 == *"error:"* ]]
+    if [[ $1 == *"fatal:"* ]]
     then
         problem_detected="error"
         echo -e "\e[31m[ERROR]: Some error occurred:"
+        echo -e "$1\e[0m"
+        return
+    fi
+    if [[ $1 == *"error:"* ]]
+    then
+        problem_detected="warning"
+        echo -e "\e[35m[WARNING]: Some error occurred:"
         echo -e "$1\e[0m"
         return
     fi
@@ -50,9 +74,9 @@ for D in */ ;
 do
     cd $D
     file_cnt=$(echo -n "$(ls)" | grep -c '^')
-    if [[ $file_cnt != 0 ]]
+    if [[ $file_cnt == 0 ]]
     then
-        init_repositories="false"
+        init_repositories="true"
     fi
     cd ..
 done
@@ -100,7 +124,7 @@ do
     status="$status $(git remote update origin --prune 2>&1)"
     commit=$(echo $(git log -1 --all --date-order) | awk -F 'commit | ' '{print $2}')
     branch=$(git branch --contains $commit | cut -c 3-)
-    if [ -z $branch ]
+    if [ -z "$branch" ]
     then
         branch=$(git branch -a --all --contains $commit | cut -c 18-)
     fi
@@ -108,8 +132,9 @@ do
     then
         branch=$(echo $branch | cut -c 23-)
     fi
-    status="$status $(git checkout $branch 2>&1)"
-    status="$status $(git pull origin $branch 2>&1)"
+    branch="$(spearate_branches "$branch")"
+    status="$status $(git checkout "$branch" 2>&1)"
+    status="$status $(git pull origin "$branch" 2>&1)"
     # Check for some other errors/fatals:
     check_for_errors "$status" $D
     if [[ $problem_detected == "warning" ]] || [[ $problem_detected == "error" ]]
