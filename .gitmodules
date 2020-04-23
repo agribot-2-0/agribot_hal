@@ -19,3 +19,6 @@
 [submodule "hal_iocard"]
 	path = hal_iocard
 	url = https://github.com/panpawelchmiel/hal_iocard.git
+[submodule "hal_rfid"]
+	path = hal_rfid
+	url = https://github.com/panpawelchmiel/hal_rfid.git
