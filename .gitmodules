@@ -22,3 +22,6 @@
 [submodule "hal_rfid"]
 	path = hal_rfid
 	url = https://github.com/panpawelchmiel/hal_rfid.git
+[submodule "hal_video_stream"]
+	path = hal_video_stream
+	url = https://github.com/panpawelchmiel/hal_video_stream.git
