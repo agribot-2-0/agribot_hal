@@ -1,4 +1,4 @@
-image: docker:git
+image: docker:18-git
 
 pipelines:
   default:
@@ -14,9 +14,9 @@ pipelines:
            - git clone https://github.com/panpawelchmiel/agribot_common.git
            - git clone https://github.com/panpawelchmiel/agribot_drivers.git
            - cp agribot_drivers/io_card/prebuilt/* hal_iocard/
-           - .industrial_ci/bitbucket.sh ROS_DISTRO=melodic  UPSTREAM_WORKSPACE="agribot_msgs agribot_common"
+           - .industrial_ci/bitbucket.sh BUILDER="colcon" ROS_DISTRO=melodic
 
 definitions:
   services:
     docker:
-      memory: 2048
+      memory: 3072
