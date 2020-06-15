@@ -122,7 +122,7 @@ do
     fi
     status="$status $(git checkout master 2>&1)"
     status="$status $(git remote update origin --prune 2>&1)"
-    commit=$(echo $(git log -1 --all --date-order) | awk -F 'commit | ' '{print $2}')
+    commit=$(echo $(git log -1 --remotes=* --date-order) | awk -F 'commit | ' '{print $2}')
     branch=$(git branch --contains $commit | cut -c 3-)
     if [ -z "$branch" ]
     then
