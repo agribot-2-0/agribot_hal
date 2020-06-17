@@ -1,3 +1,0 @@
-<launch>
-    <node name="io_card_node" pkg="hal_io_card" type="io_card_node"/>
-</launch>
