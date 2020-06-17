@@ -16,9 +16,9 @@
 [submodule "hal_mobile_app"]
 	path = hal_mobile_app
 	url = https://github.com/panpawelchmiel/hal_mobile_app.git
-[submodule "hal_iocard"]
-	path = hal_iocard
-	url = https://github.com/panpawelchmiel/hal_iocard.git
+[submodule "hal_io_card"]
+	path = hal_io_card
+	url = https://github.com/panpawelchmiel/hal_io_card.git
 [submodule "hal_rfid"]
 	path = hal_rfid
 	url = https://github.com/panpawelchmiel/hal_rfid.git
