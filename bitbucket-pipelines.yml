@@ -13,7 +13,7 @@ pipelines:
            - git clone https://github.com/panpawelchmiel/agribot_msgs.git
            - git clone https://github.com/panpawelchmiel/agribot_common.git
            - git clone https://github.com/panpawelchmiel/agribot_drivers.git
-           - cp agribot_drivers/io_card/prebuilt/* hal_iocard/
+           - cp agribot_drivers/io_card/prebuilt/* hal_io_card/
            - .industrial_ci/bitbucket.sh BUILDER="colcon" ROS_DISTRO=melodic
 
 definitions:
