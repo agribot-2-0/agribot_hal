@@ -25,3 +25,6 @@
 [submodule "hal_video_stream"]
 	path = hal_video_stream
 	url = https://github.com/panpawelchmiel/hal_video_stream.git
+[submodule "hal_weather_station"]
+	path = hal_weather_station
+	url = https://github.com/panpawelchmiel/hal_weather_station.git
