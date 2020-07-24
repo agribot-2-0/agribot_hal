@@ -2,19 +2,32 @@ image: docker:18-git
 
 pipelines:
   default:
-     - step:
-         name: "ROS Build"
-         services:
-           - docker
-         script:
-           - apk add --update bash coreutils tar
-           - ./pull_submodules.sh
-           - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci .industrial_ci -b master
-           - git clone https://github.com/panpawelchmiel/agribot_msgs.git
-           - git clone https://github.com/panpawelchmiel/agribot_common.git
-           - git clone https://github.com/panpawelchmiel/agribot_drivers.git
-           - cp agribot_drivers/io_card/prebuilt/* hal_io_card/
-           - .industrial_ci/bitbucket.sh BUILDER="colcon" ROS_DISTRO=melodic
+    - step:
+        name: "Check cppcheck"
+        script:
+          - apk add --update bash coreutils tar cppcheck
+          - git submodule update --init --recursive
+          - cppcheck hal_*
+    - step:
+        name: "Check cpplint"
+        script:
+          - apk add --update bash coreutils tar python3 py3-pip
+          - pip3 install cpplint==1.4.6
+          - git submodule update --init --recursive
+          - cpplint --recursive hal_*
+    - step:
+        name: "ROS Build"
+        services:
+          - docker
+        script:
+          - apk add --update bash coreutils tar
+          - ./pull_submodules.sh
+          - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci .industrial_ci -b master
+          - git clone https://github.com/panpawelchmiel/agribot_msgs.git
+          - git clone https://github.com/panpawelchmiel/agribot_common.git
+          - git clone https://github.com/panpawelchmiel/agribot_drivers.git
+          - cp agribot_drivers/io_card/prebuilt/* hal_io_card/
+          - .industrial_ci/bitbucket.sh BUILDER="colcon" ROS_DISTRO=melodic
 
 definitions:
   services:
