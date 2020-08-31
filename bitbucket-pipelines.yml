@@ -21,7 +21,7 @@ pipelines:
           - docker
         script:
           - apk add --update bash coreutils tar
-          - ./pull_submodules.sh
+          - git submodule update --init --recursive
           - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci .industrial_ci -b master
           - git clone https://github.com/panpawelchmiel/agribot_msgs.git
           - git clone https://github.com/panpawelchmiel/agribot_common.git
