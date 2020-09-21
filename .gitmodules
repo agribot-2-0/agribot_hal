@@ -34,3 +34,6 @@
 [submodule "livox_ros_driver"]
 	path = livox_ros_driver
 	url = https://github.com/panpawelchmiel/livox_ros_driver.git
+[submodule "hal_lidar"]
+	path = hal_lidar
+	url = https://github.com/panpawelchmiel/hal_lidar.git
