@@ -31,3 +31,6 @@
 [submodule "hal_sonars"]
 	path = hal_sonars
 	url = https://github.com/panpawelchmiel/hal_sonars.git
+[submodule "hal_hydraulics_monitoring"]
+	path = hal_hydraulics_monitoring
+	url = https://bitbucket.org/agribotteam/hal_hydraulics_monitoring
