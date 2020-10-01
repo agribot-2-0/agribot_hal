@@ -31,6 +31,9 @@
 [submodule "hal_sonars"]
 	path = hal_sonars
 	url = https://github.com/panpawelchmiel/hal_sonars.git
+[submodule "hal_hydraulics_monitoring"]
+	path = hal_hydraulics_monitoring
+	url = https://github.com/panpawelchmiel/hal_hydraulics_monitoring.git
 [submodule "livox_ros_driver"]
 	path = livox_ros_driver
 	url = https://github.com/panpawelchmiel/livox_ros_driver.git
