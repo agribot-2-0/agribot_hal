@@ -40,3 +40,6 @@
 [submodule "hal_lidar"]
 	path = hal_lidar
 	url = https://github.com/panpawelchmiel/hal_lidar.git
+[submodule "hal_engine_monitoring"]
+	path = hal_engine_monitoring
+	url = https://github.com/panpawelchmiel/hal_engine_monitoring.git
