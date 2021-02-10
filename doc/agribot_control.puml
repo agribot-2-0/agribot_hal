@@ -1,0 +1,71 @@
+@startuml
+
+() "SocketCan" as SocketCan
+
+() "/agribot/encoder/caterpillar \n\
+agribot_msgs/AgribotCaterpillar.msg \n\n\
+/agribot/encoder/cart/front \n\
+std_msgs/Float.msg \n\
+/agribot/encoder/cart/back \n\
+std_msgs/Float.msg \n\n\
+/agribot/encoder/tool/front \n\
+agribot_msgs/AgtibotTool.msg \n\
+/agribot/encoder/tool/back \n\
+agribot_msgs/AgtibotTool.msg" as Encoders
+
+() "/agribot/control/caterpillar \n\
+agribot_msgs/AgribotCaterpillar.msg \n\n\n\n\n\n\n\
+/agribot/control/tool/front \n\
+agribot_msgs/AgtibotTool.msg \n\
+/agribot/control/tool/back \n\
+agribot_msgs/AgtibotTool.msg" as Controls
+
+
+package hal_agribot_control {
+
+Encoders -- [AgribotControl]
+Controls )-- [AgribotControl]
+
+[Heartbeat] --( SocketCan
+[AgribotControl] --( SocketCan
+
+}
+
+note right of AgribotControl
+AgribotCaterpillar.msg
+
+float front_linear
+float front_angular
+float back_linear
+float back_angular
+end note
+
+note right of AgribotControl
+AgribotTool.msg
+
+float tpl_height
+float tpl_angle
+float pto_rpm
+end note
+
+note right of AgribotControl
+TTControlParameters.cfg
+
+int ditter_period
+int ditter_amplitude
+int encoder_period
+double front_kp_t
+double front_kd_t
+double front_acc_t 
+double front_kp_r
+double front_kd_r
+double front_acc_r
+double back_kp_t
+double back_kd_t
+double back_acc_t
+double back_kp_r
+double back_kd_r
+double back_acc_r
+end note
+
+@enduml

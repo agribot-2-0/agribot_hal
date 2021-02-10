@@ -1,0 +1,29 @@
+@startuml
+
+() "/bumper/front/lidar \n\
+sensor_msgs/LaserScan.msg" as LidarMsg
+
+() "RTMP Stream" as Rtmp
+
+package hal_lidar {
+    component LidarFront
+}
+
+package hal_video_stream {
+    component Cameras360
+}
+
+Rtmp -- Cameras360
+LidarMsg -- [LidarFront]
+
+note right of Cameras360
+without ROS
+end note
+
+
+[LidarFront] --( SocketCan
+[Cameras360] --( PAL
+
+
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+
+() "SocketCan" as SocketCan
+
+() "/agribot/gnss \n sensor_msgs/NavSatFix.msg \n\n \
+/agribot/heading \n sensor_msgs/Imu.msg \n\n \
+/agribot/imu \n sensor_msgs/Imu.msg \n\n \
+/agribot/magnetic_field \n sensor_msgs/MagneticField.msg" as LocalizationSensors
+
+() "/agribot/inclinometer \n sensor_msgs/Imu.msg" as InclinometerTopic
+
+package hal_hydrabox {
+    component Hydrabox
+}
+
+package hal_inclinometer {
+    component Inclinometer
+}
+
+LocalizationSensors -- [Hydrabox]
+InclinometerTopic -- [Inclinometer]
+
+[Inclinometer] --( SocketCan
+[Hydrabox] --( SocketCan
+
+
+
+@enduml

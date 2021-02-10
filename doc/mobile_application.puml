@@ -1,0 +1,21 @@
+@startuml
+
+() "/agribot/mobile_app_communication: \n\
+agribot_msgs/AgribotMobileAppFrame.msg \n\n\
+/agribot/state_machine/error \n\
+agribot_msgs/AgribotAppErrorFlag.msg \n\n\
+/agribot/state_machine/mode \n\
+industrial_msgs/RobotMode.msg \n\n\
+/cmd_vel_manual \n\
+agribot_msgs/AgribotManualControl.msg" as MobileAppInterface
+
+
+package hal_mobile_app {
+    component MobileApp
+}
+
+MobileAppInterface -- MobileApp
+MobileApp --( SocketCan
+
+
+@enduml
