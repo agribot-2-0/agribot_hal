@@ -43,3 +43,6 @@
 [submodule "hal_tool"]
 	path = hal_tool
 	url = https://github.com/panpawelchmiel/hal_tool.git
+[submodule "hal_lights"]
+	path = hal_lights
+	url = https://github.com/panpawelchmiel/hal_lights.git
