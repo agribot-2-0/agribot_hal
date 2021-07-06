@@ -27,7 +27,7 @@ pipelines:
           - if [ -z "$(git ls-remote --heads https://github.com/panpawelchmiel/agribot_common.git $(git rev-parse --abbrev-ref HEAD))" ]; then git clone https://github.com/panpawelchmiel/agribot_common.git; else git clone https://github.com/panpawelchmiel/agribot_common.git -b $(git rev-parse --abbrev-ref HEAD); fi
           - git clone https://github.com/panpawelchmiel/agribot_drivers.git
           - cp agribot_drivers/io_card/prebuilt/* hal_io_card/
-          - .industrial_ci/bitbucket.sh BUILDER="colcon" ROS_DISTRO=melodic
+          - .industrial_ci/bitbucket.sh BUILDER="colcon" ROS_DISTRO=melodic UPSTREAM_WORKSPACE="gitlab:hydrasystem/hydrabox_gnss_driver#melodic"
 
 definitions:
   services:
